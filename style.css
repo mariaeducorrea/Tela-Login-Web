@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*encaixa paddinge borda ddentro do tamanho definido*/
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /*cobrir tela inteira na vertical*/
+    background-image: url('./img/fundo6.jpg');
+    background-size: 10% auto; /* Zoom leve */
+    background-size: cover; /*cobrir todo fundo sem distorcer*/
+    background-position: center;
+    overflow: hidden; /*escodenr tudo que passar do elemente*/
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Ajuste a opacidade conforme necessário */
+    z-index: -1;
+}
+
+/* CONTAINER PRINCIPAL */
+.container {
+    position: relative;
+    width: 380PX;
+    height: 500PX;
+}
+
+/* ESTILO PARA TODAS AS TELAS - LOGIN/FORGOT/REGISTER */
+.container-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #1c1c1c;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+                rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    padding: 40px;
+}
+
+.container-screen h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.container-screen p {
+    text-align: center;
+    font-size: 13px;    
+}
+
+.forgot-screen p {
+    margin-bottom: 15px;
+}
+
+
+/* ESTILO DE ALTURA DIFERENTE PARA CADA TELA*/
+.register-screen {
+    height: 610px;
+}
+
+.forgot-screen {
+    height: 350px;
+}
+
+
+/* FORMULARIOS */
+.form-login,
+.form-forgot,
+.form-register {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* BOX DE INPUTS - PARA TODAS AS TELAS - LOGIN/REGISTER/FORGOT*/
+.box-login,
+.box-register,
+.box-forgot {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    margin-top: 20px;
+}
+
+/* FORMATO DAS CAIXAS DE INPUT */
+.box-input input {
+    width: 100%;
+    height: 45px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    padding-left: 11px;
+    background-color: #F8FAFB;
+    border: 1px solid;
+    border-color: #D5D6DE;
+    outline: none;
+    font-size: 12px;
+    padding: 20px 45px 20px 20px;
+}
+
+/* FORMATAÇÃO DE INPUT QUANDO SELECIONADO*/
+.box-input input:hover {
+    border-color: #4c7ede;
+    box-shadow: 0 1px 1px rgba(198, 213, 252, 0.8);
+}
+
+/* FORMATO DAS DESCRIÇOES ACIMA DAS CAIXAS INPUT */
+.box-input label {
+    font-weight: 500;
+    font-size: 12px;
+    margin-top: 50px;
+    margin-left: 5px;
+}
+
+.input-icon {
+    position: relative;
+    width: 100%;
+}
+
+.input-icon i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-80%);
+    font-size: 15px;
+    color: #BBBBBF;
+}
+
+/*BOX DE LEMBRAR SENHA E ESQUECEU SENHA*/
+.box-remeber-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    align-items: center;
+    height: 20px; 
+    margin: 15px 5px 20px 5px;
+}
+
+
+.remember-password label {
+    display: flex;
+    gap: 6px;
+    cursor: pointer;
+    height: 100%; 
+    font-size: 12px;
+}
+
+.remember-password input[type="checkbox"] {
+    accent-color: #4C7EDE;
+    width: 14px;
+    height: 16px;
+    cursor: pointer; 
+}
+
+.forgot-password a,
+.box-register-login a,
+.box-link-login a {
+    text-decoration: none;
+    color: #1c1c1c;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover,
+.box-register-login a:hover,
+.box-link-login a:hover {
+    text-decoration: underline;
+    color: #4C7EDE;
+}
+
+
+
+/*BOTÃO*/
+.button-box {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    text-align: center;
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #F8FAFB;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: #4C7EDE;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+    margin-top: 16px;
+}
+
+
+
+/*CONFIGURAÇÃO DE ALTERAÇÃO DE MENUS*/
+
+/*Tela de login ativo por padrao*/
+.login-screen.active {
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 2;
+}
+
+/*"desativa" tela de login*/
+.login-screen:not(.active) {
+    transform: translateX(-100%);
+    opacity: 0;
+    z-index: 1;                                                               
+}
+
+/*Tela de recuperar senha ativo*/
+.forgot-screen.active {
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 2;
+}
+
+/*"desativa" tela de recuperar senha*/
+.forgot-screen:not(.active) {
+    transform: translateX(100%);
+    opacity: 0;
+    z-index: 1;
+}
+
+/*ativar tela de recuperar senha*/
+.register-screen.active {
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 2;
+}
+
+/*"desativar" tela de login*/
+.register-screen:not(.active) {
+    transform: translateX(100%);
+    opacity: 0;
+    z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
