@@ -4,7 +4,7 @@ Uma interface moderna e responsiva para autenticação de usuários, desenvolvid
 
 ## ✨ Demonstração
 
-🔗 **Acesse o site online:** [Clique aqui para visualizar](https://mariaeducorrea.github.io/Tela-Login-Web/)
+🔗 **Acesse o site online:** 
 
 ## 🚀 Sobre o Projeto
 
